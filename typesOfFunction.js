@@ -249,18 +249,87 @@
 //! Generator function
 //? Function that can pause and resume its exuction later is called as a generator function. It yields the value in the process
 
-function* generateNumbers() {
-  yield 1;
-  yield 2;
-  yield 3;
+// function* generateNumbers() {
+//   yield 1;
+//   yield 2;
+//   yield 3;
 
-  return "Execution done";
-}
+//   return "Execution done";
+// }
 
-let serial = generateNumbers();
-console.log(serial);
-let a = serial.next().value;
-console.log(a);
-console.log(serial.next().value);
-console.log(serial.next().value);
-console.log(serial.next().value);
+// let serial = generateNumbers();
+// console.log(serial);
+// let a = serial.next().value;
+// console.log(a);
+// console.log(serial.next().value);
+// console.log(serial.next().value);
+// console.log(serial.next().value);
+
+//! Higher Order function and Callback function
+//? Higher Order function - A function which accepts another function as an argument or returns a function is called as a higher order function
+//? Callback function - A function which is passed as an argument is called a callback function
+
+// function addition(a, b) {
+//   return a + b;
+// }
+// // console.log(addition(10, 20));
+
+// function subtraction(a, b) {
+//   return a - b;
+// }
+// // console.log(subtraction(10, 20));
+
+// function calculator(a, b, operation) {
+//   return operation(a, b);
+// }
+// console.log(calculator(10, 20, addition));
+// console.log(calculator(10, 20, subtraction));
+
+let radius = [3, 1, 2, 4];
+
+// let calculateArea = function (paramter) {
+//   let output = [];
+//   for (let i = 0; i < paramter.length; i++) {
+//     output.push(3.14 * paramter[i] * paramter[i]);
+//   }
+//   return output;
+// };
+// console.log(calculateArea(radius));
+
+// let calculateCircumfrence = function (parameter) {
+//   let output = [];
+//   for (let i = 0; i < parameter.length; i++) {
+//     output.push(2 * 3.14 * parameter[i]);
+//   }
+//   return output;
+// };
+// console.log(calculateCircumfrence(radius));
+
+// let calculateDiameter = function (parameter) {
+//   let output = [];
+//   for (let i = 0; i < parameter.length; i++) {
+//     output.push(2 * parameter[i]);
+//   }
+//   return output;
+// };
+// console.log(calculateDiameter(radius));
+
+let area = function (parameter) {
+  return 3.14 * parameter * parameter;
+};
+let circumfrence = function (parameter) {
+  return 2 * 3.14 * parameter;
+};
+let diameter = function (parameter) {
+  return 2 * parameter;
+};
+let calculate = function (radius, operation) {
+  let output = [];
+  for (let i = 0; i < radius.length; i++) {
+    output.push(operation(radius[i]));
+  }
+  return output;
+};
+console.log(calculate(radius, area));
+console.log(calculate(radius, circumfrence));
+console.log(calculate(radius, diameter));
