@@ -227,11 +227,11 @@
 
 // console.log(Object.isFrozen(obj))
 
-let obj = {
-  name: "Peter parker",
-  age: 19,
-  address: "New York",
-};
+// let obj = {
+//   name: "Peter parker",
+//   age: 19,
+//   address: "New York",
+// };
 // obj.team = "Marvel";
 // console.log(obj)
 
@@ -294,17 +294,17 @@ let obj = {
 //~             ....
 //~          })
 
-Object.defineProperties(obj, {
-  team: {
-    value: "Marvel",
-    writable: true,
-    configurable: true,
-    enumerable: true,
-  },
-  hoobies: {
-    value: ["Video games", "Soccer"],
-  },
-});
+// Object.defineProperties(obj, {
+//   team: {
+//     value: "Marvel",
+//     writable: true,
+//     configurable: true,
+//     enumerable: true,
+//   },
+//   hoobies: {
+//     value: ["Video games", "Soccer"],
+//   },
+// });
 // console.log(obj);
 
 //* getOwnPropertyDescriptior - It will return an object, describing the configuration of the specified property on the given object. It will check the property in the object only, not in its prototype object.
@@ -317,4 +317,74 @@ Object.defineProperties(obj, {
 //* getOwnPropertyDescriptors -  It will return an object, describing configuration of all the properties present inside the object.
 //~ Syntax - Object.getOwnPropertyDescriptiors(objectName)
 
-console.log(Object.getOwnPropertyDescriptors(obj))
+// console.log(Object.getOwnPropertyDescriptors(obj))
+
+//^ Ways to create object
+
+//& Object literal
+//? By using object literals ( { } )
+
+// let obj = {
+//   name: "Someone",
+//   age: 400,
+// };
+// console.log(obj)
+
+//& Object constructor
+//? It gives a blueprint based on which different instances of object can be created. It returns an empty object, we can define our own properties.
+
+// let obj1 = new Object();
+// console.log(obj1);
+
+// obj1.name = "Peter parker";
+// obj1.age = 19;
+// console.log(obj1);
+
+// let obj2 = {
+//   name: "Steve rogers",
+//   age: 120,
+// };
+
+// let obj3 = {
+//   name: "Tony Stark",
+//   age: 60,
+// };
+
+//& Constructor function
+
+function Avenegers(name, age) {
+  this.name = name;
+  this.age = age;
+}
+// console.log(new Avenegers("Steve", 120));
+// console.log(new Avenegers("Tony", 60));
+// console.log(new Avenegers("Peter", 20));
+
+let captainAmerica = new Avenegers("Steve", 120);
+console.log(captainAmerica);
+console.log(captainAmerica.name);
+// captainAmerica.saveWorld()
+let ironMan = new Avenegers("Tony", 60);
+console.log(ironMan);
+// ironMan.saveWorld()
+let spiderMan = new Avenegers("Peter", 20);
+console.log(spiderMan);
+
+console.log(captainAmerica.__proto__);
+
+console.log(Avenegers.prototype);
+
+Avenegers.prototype.saveWorld = function () {
+  console.log("Saving world");
+};
+console.log(Avenegers.prototype);
+captainAmerica.saveWorld();
+
+let printDetails = function () {
+  console.log("Name " + this.name + " age " + this.age);
+};
+Avenegers.prototype.printDetails = printDetails;
+
+captainAmerica.printDetails()
+//? While creating object, from a constructor, we have to use new keyword
+//? this will point to the current object, but the value of this can be varied based upon where and how it is used
