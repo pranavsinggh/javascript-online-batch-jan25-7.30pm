@@ -352,39 +352,90 @@
 
 //& Constructor function
 
-function Avenegers(name, age) {
-  this.name = name;
-  this.age = age;
-}
-// console.log(new Avenegers("Steve", 120));
-// console.log(new Avenegers("Tony", 60));
-// console.log(new Avenegers("Peter", 20));
+// function Avenegers(name, age) {
+//   this.name = name;
+//   this.age = age;
+// }
+// // console.log(new Avenegers("Steve", 120));
+// // console.log(new Avenegers("Tony", 60));
+// // console.log(new Avenegers("Peter", 20));
 
-let captainAmerica = new Avenegers("Steve", 120);
-console.log(captainAmerica);
-console.log(captainAmerica.name);
-// captainAmerica.saveWorld()
-let ironMan = new Avenegers("Tony", 60);
-console.log(ironMan);
-// ironMan.saveWorld()
-let spiderMan = new Avenegers("Peter", 20);
-console.log(spiderMan);
+// let captainAmerica = new Avenegers("Steve", 120);
+// console.log(captainAmerica);
+// console.log(captainAmerica.name);
+// // captainAmerica.saveWorld()
+// let ironMan = new Avenegers("Tony", 60);
+// console.log(ironMan);
+// // ironMan.saveWorld()
+// let spiderMan = new Avenegers("Peter", 20);
+// console.log(spiderMan);
 
-console.log(captainAmerica.__proto__);
+// console.log(captainAmerica.__proto__);
 
-console.log(Avenegers.prototype);
+// console.log(Avenegers.prototype);
 
-Avenegers.prototype.saveWorld = function () {
-  console.log("Saving world");
-};
-console.log(Avenegers.prototype);
-captainAmerica.saveWorld();
+// Avenegers.prototype.saveWorld = function () {
+//   console.log("Saving world");
+// };
+// console.log(Avenegers.prototype);
+// captainAmerica.saveWorld();
 
-let printDetails = function () {
-  console.log("Name " + this.name + " age " + this.age);
-};
-Avenegers.prototype.printDetails = printDetails;
+// let printDetails = function () {
+//   console.log("Name " + this.name + " age " + this.age);
+// };
+// Avenegers.prototype.printDetails = printDetails;
 
-captainAmerica.printDetails()
+// captainAmerica.printDetails()
 //? While creating object, from a constructor, we have to use new keyword
 //? this will point to the current object, but the value of this can be varied based upon where and how it is used
+
+//& Class
+//? Behind the scenes works like constructor function only, it is just syntactic sugar.
+//? Class is a blueprint, based on which you can create an instance of the class (object)
+
+// class Avenegers {
+//   constructor(name, age) {
+//     (this.name = name), (this.age = age);
+//   }
+//   saveWorld() {
+//     console.log("Saving world");
+//   }
+//   printDetails() {
+//     console.log("Name " + this.name + " age " + this.age);
+//   }
+//   team = "Marvels";
+
+//   static greet() {
+//     console.log("Welcome to avengers");
+//   }
+// }
+// console.log(Avenegers.prototype);
+
+// let captainAmerica = new Avenegers("Steve", 120);
+// console.log(captainAmerica);
+// captainAmerica.saveWorld();
+// captainAmerica.printDetails();
+
+// Avenegers.greet();
+
+//TODO Inheritance
+
+class Employee {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+}
+
+class Manager extends Employee {
+  constructor(name, age, sal) {
+    super(name, age);
+    this.sal = sal;
+  }
+}
+
+let emp = new Employee("xyz", 21);
+console.log(emp);
+
+let mgr = new Manager("abc", 28, 120000);
+console.log(mgr);
