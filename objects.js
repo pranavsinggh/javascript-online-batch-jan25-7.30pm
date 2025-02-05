@@ -135,7 +135,6 @@
 //? Whenever we creates an object, a hidden object it assigned to that object, which is again an object so a hidden object is assigned to it also and it goes on. This is called as prototype chain.
 //? At the top we have the Object and its prototype object points to null
 
-
 //& Prototype inheritance
 //? Whenever we try to access a property inside an object, it first find it inside the own object, if it is not present, then it will check inside its prototype object, if it is not even present there, then it will check inside the prototype's prototype object and so on, till it reaches the Object's prototype object which is null. If the property is found it will access it otherwise it will give an error. This is called as prototype inheritance.
 // let obj1 = {
@@ -158,11 +157,11 @@
 // console.log(obj2.city)
 
 //^ Method of object
-let obj = {
-  name: "Peter parker",
-  age: 19,
-  address:"New York"
-}
+// let obj = {
+//   name: "Peter parker",
+//   age: 19,
+//   address:"New York"
+// }
 // console.log(obj)
 
 //* hasOwnProperty - it is used to check wether a particular property is present inside your object or not. If present returns true else false.
@@ -213,17 +212,109 @@ let obj = {
 //* freeze - It is used to freeze your object, which means we can not add a property, delete a property or modify a property. We can only access a property.
 //~ Syntax - Object.freeze(objName)
 
-Object.freeze(obj)
-obj.team = "Marvel";
-console.log(obj);
-delete obj.address;
-console.log(obj);
-obj.name = "Steve rogers";
-console.log(obj);
+// Object.freeze(obj)
+// obj.team = "Marvel";
+// console.log(obj);
+// delete obj.address;
+// console.log(obj);
+// obj.name = "Steve rogers";
+// console.log(obj);
 
-console.log(obj.name)
+// console.log(obj.name)
 
 //* isFrozen - It is used to check wether my object is frozen or not. If frozen returns true else false
 //~ Syntax - Object.isFrozen(objName)
 
-console.log(Object.isFrozen(obj))
+// console.log(Object.isFrozen(obj))
+
+let obj = {
+  name: "Peter parker",
+  age: 19,
+  address: "New York",
+};
+// obj.team = "Marvel";
+// console.log(obj)
+
+//* defineProperty - It is used to define (add) property to your object. All the extra properties other than value are optional, you can skip anyone
+//~ Syntax - Object.defineProperty(objName,"key",{
+//~             value:value,
+//~             writable:boolean
+//~             configurable:boolean
+//~             enumerable:boolean
+//~          })
+//? writable - controls wether you can modify the particular property or not. By default it is false, which means we can no modify it, if we set it to true, we can modify it
+//? configurable - controls wether you can delete the particular property or not. By default it false, which means we can not delete it, if we set it to true, we can delete it.
+//? enumerable - controls wether we can iterate the particular property or not. By default it false, which means we can not iterate it, if we set it to true, we can iterate it. (can not be accessed by keys, entries, for in loop)
+
+// Object.defineProperty(obj, "team", {
+//   value: "Marvel",
+// });
+// console.log(obj)
+
+// obj.name="Flash"
+// console.log(obj)
+// obj.team="DC"
+// console.log(obj)
+// delete obj.team
+// console.log(obj)
+// console.log(Object.keys(obj))
+
+// Object.defineProperty(obj, "team", {
+//   value: "Marvel",
+//   writable: true,
+//   configurable: true,
+//   enumerable: true,
+// });
+// console.log(obj);
+
+// obj.team = "DC";
+// console.log(obj);
+// console.log(Object.keys(obj));
+// delete obj.team;
+// console.log(obj);
+
+// for (let i in obj) {
+//   console.log(i)
+// }
+
+//* defineProperties - It is used to define multiple properties at the same time.
+//~ Syntax - Object.defineProperties(objName,{
+//~             key: {
+//~               value: value,
+//~               writable:boolean ,
+//~               configuarble:boolean,
+//~               enumerable:boolean,
+//~             },
+//~             key: {
+//~               value: value,
+//~               writable:boolean ,
+//~               configuarble:boolean,
+//~               enumerable:boolean,
+//~             },
+//~             ....
+//~          })
+
+Object.defineProperties(obj, {
+  team: {
+    value: "Marvel",
+    writable: true,
+    configurable: true,
+    enumerable: true,
+  },
+  hoobies: {
+    value: ["Video games", "Soccer"],
+  },
+});
+// console.log(obj);
+
+//* getOwnPropertyDescriptior - It will return an object, describing the configuration of the specified property on the given object. It will check the property in the object only, not in its prototype object.
+//~ Syntax - Object.getOwnPropertyDescriptior(objectName,"property")
+
+// console.log(Object.getOwnPropertyDescriptor(obj,"name"))
+// console.log(Object.getOwnPropertyDescriptor(obj,"team"))
+// console.log(Object.getOwnPropertyDescriptor(obj, "hoobies"))
+
+//* getOwnPropertyDescriptors -  It will return an object, describing configuration of all the properties present inside the object.
+//~ Syntax - Object.getOwnPropertyDescriptiors(objectName)
+
+console.log(Object.getOwnPropertyDescriptors(obj))
