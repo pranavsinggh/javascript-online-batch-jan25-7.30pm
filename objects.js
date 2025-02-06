@@ -479,19 +479,210 @@
 
 //& Factory function
 
-function createPerson(name, age) {
-  return {
-    name,
-    age,
-    greet() {
-      console.log("hello my name is " + this.name);
-    },
-  };
-}
-let person1=createPerson("Vishal",24)
-console.log(person1)
-person1.greet()
+// function createPerson(name, age) {
+//   return {
+//     name,
+//     age,
+//     greet() {
+//       console.log("hello my name is " + this.name);
+//     },
+//   };
+// }
+// let person1=createPerson("Vishal",24)
+// console.log(person1)
+// person1.greet()
 
-let person2=createPerson("Shiva",30)
-console.log(person2)
-person2.greet()
+// let person2=createPerson("Shiva",30)
+// console.log(person2)
+// person2.greet()
+
+//! this keywword
+//? It is a keyword in javascript, which points to your current object.
+
+//^ Global scope
+//? In the global scope, this will point to the global object (window object)
+// console.log(this);
+
+//^ Function
+//? In a function, this points to null or undefined. Whenver this is null or undefined, it is replaced by your global object.
+// function greet() {
+//   console.log(this);
+// }
+// greet();
+
+//^ Arrow function
+//? It takes the value from its lexical scope. Arrow function does not have its own this binding, it borrows this from its lexical scope
+// let fn = () => {
+//   console.log(this);
+// };
+// fn();
+
+//^ Function as method
+//? It will point to the current object
+//^ Arrow function as a method
+//? It will take the value of this from its lexical scope, so thats why we never use arrow functions as method or as constructor function
+
+// let obj = {
+//   name: "Vishal",
+//   age: 24,
+//   printDetails: function () {
+//     console.log(this);
+//   },
+//   printDetailsArrow: () => {
+//     console.log(this);
+//   },
+//   printDetailsNested: function () {
+//     let arrow = () => {
+//       console.log(this);
+//     };
+//     arrow();
+//   },
+// };
+// obj.printDetails();
+// obj.printDetailsArrow();
+// obj.printDetailsNested();
+
+//^ Constructor function, Class
+//? It always point to the instance using it (current instance)
+// function person(name, age) {
+//   this.name = name;
+//   this.age = age;
+//   this.details = function () {
+//     console.log(this);
+//   };
+// }
+
+// let p1=new person("Shiva",21)
+// let p2 = new person("Vishal", 24)
+
+// p1.details()
+// p2.details()
+
+//^ Static methods
+//? this always point to the class
+
+// class Person {
+//   constructor(name, age) {
+//     this.name = name;
+//     this.age = age;
+
+//     this.printDetails = function () {
+//       console.log(this);
+//     };
+//   }
+
+//   static printDetailsStatic() {
+//     console.log(this);
+//     console.log(this.name)
+//   }
+// }
+
+// let p1=new Person("Shiva",21)
+// p1.printDetails()
+
+// Person.printDetailsStatic()
+
+//^ call, apply, bind
+//? They are used to explicitly change the value of this. These are the methods present inside the Function prototype object.
+//? They are used to borrow functions.
+
+// let printDetails = function (hometwon, current) {
+//   console.log(
+//     `Hello my name is ${this.name} and my age is ${this.age}. I am from ${hometwon}, but currently i am in ${current}`
+//   );
+// };
+
+// let obj1 = {
+//   name: "Vishal",
+//   age: 21,
+//   // printDetails(hometwon, current) {
+//   //   console.log(
+//   //     `Hello my name is ${this.name} and my age is ${this.age}. I am from ${hometwon}, but currently i am in ${current}`
+//   //   );
+//   // },
+// };
+// obj1.printDetails("mumbai", "bengaluru");
+// printDetails.call(obj1, "mumbai", "bengaluru");
+
+// let obj2 = {
+//   name: "Shiva",
+//   age: 24,
+// };
+
+// obj1.printDetails.call(obj2, "Pune", "Hyderabad");
+// printDetails.call(obj2, "pune", "hyderabad");
+
+// printDetails.apply(obj1, ["mumabi", "bengaluru"]);
+// printDetails.apply(obj2, ["pune", "hyderabad"]);
+
+// let bindedfn = printDetails.bind(obj1, "mumbai");
+// bindedfn("bangalore");
+// bindedfn("gurugram");
+// bindedfn("ahmedabad");
+
+//& call - it will invoke the function immediatley. We use this when we know the exact number of arguments.
+//& apply - it will invoke the function immediatley. We use this when we dont know the exact number of arguments.
+//& bind - it will not invoke the function immediately, we can call the function later with dynamic arguments.
+
+//! Math object
+//? Inbuilt object provied by javascript, used for mathematical operation.
+
+//^ Math.abs() - Used to find the absolute value
+// console.log(Math.abs(41))
+// console.log(Math.abs(-41))
+
+//^ Math.round() - Used to round of your value, to the nearest value
+// console.log(Math.round(3.6))
+// console.log(Math.round(3.3))
+// console.log(Math.round(-3.3))
+
+//^ Math.floor() - Used to round off to the lower value
+// console.log(Math.floor(3.4))
+// console.log(Math.floor(3.9))
+// console.log(Math.floor(-3.9))
+
+//^ Math.ceil() - Used to round off to the upper value
+// console.log(Math.ceil(3.4));
+// console.log(Math.ceil(3.9));
+// console.log(Math.ceil(-3.9));
+
+//^ Math.pow() - Used to find the power value of a number
+// console.log(Math.pow(2,3))
+// console.log(Math.pow(4,6))
+
+//^ Math.sqrt() - Used to find the square root
+// console.log(Math.sqrt(64))
+// console.log(Math.sqrt(128))
+
+//^ Math.cbrt() - Used to find the cube root
+// console.log(Math.cbrt(343))
+
+//^ Math.min() - Used to find the minimum of the values
+//^ Math.max() - Used to find the maximum of the values
+
+// console.log(Math.min(1, 4, 2, 6, 8, 10, 400, 25, 0));
+// console.log(Math.max(1, 4, 2, 6, 8, 10, 400, 25, 0));
+ 
+//^ Math.trunc() - Used to truncate(remove) the decimal values
+// console.log(Math.trunc(3.1456))
+
+//^ Math.random() - Used to generate random values between 0 and 1
+// console.log(Math.random())
+// console.log(Math.floor(Math.random() * 1000));
+
+//! Create a 4 digit random otp
+
+//! Date
+//? Used to access system date and time
+
+let date=new Date()
+console.log(date.getFullYear())
+console.log(date.getMonth())
+console.log(date.getDate())
+console.log(date.getDay())
+console.log(date.getTime())
+console.log(date.getHours())
+console.log(date.getMinutes())
+console.log(date.getSeconds())
+console.log(date.getMilliseconds())
+
