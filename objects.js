@@ -420,22 +420,78 @@
 
 //TODO Inheritance
 
-class Employee {
-  constructor(name, age) {
-    this.name = name;
-    this.age = age;
-  }
+// class Employee {
+//   constructor(name, age) {
+//     this.name = name;
+//     this.age = age;
+//   }
+// }
+
+// class Manager extends Employee {
+//   constructor(name, age, sal) {
+//     super(name, age);
+//     this.sal = sal;
+//   }
+// }
+
+// let emp = new Employee("xyz", 21);
+// console.log(emp);
+
+// let mgr = new Manager("abc", 28, 120000);
+// console.log(mgr);
+
+//& Object.assign
+//? It is a method used to create your object. It will take multiple objects and merge into the first object provided as argument. It will update the first object. So if we dont want our object to be updated, we can pass an empty object as first argument.
+//~ Syntax - Object.assign(target,source,source,source....)
+
+// let obj1 = {
+//   name: "Vishal",
+// };
+// let obj2 = {
+//   age: 24,
+// };
+// let obj3 = {
+//   salary: 40000,
+// };
+// Object.assign(obj1,obj2,obj3)
+// console.log(obj1)
+
+// let obj = {};
+// Object.assign(obj, obj1, obj2, obj3);
+// console.log(obj);
+// console.log(obj3);
+
+//& Object.create()
+//? It will create an empty object and iw will add all the properties and methods of the provided object as prototye to new created empty object.
+//~ Syntax - Object.create(obj)
+
+// let parentObj = {
+//   name: "Shiva",
+//   age: 30,
+//   printName() {
+//     console.log(this.name);
+//   },
+// };
+// console.log(parentObj);
+
+// let obj = Object.create(parentObj);
+// console.log(obj)
+
+//& Factory function
+
+function createPerson(name, age) {
+  return {
+    name,
+    age,
+    greet() {
+      console.log("hello my name is " + this.name);
+    },
+  };
 }
+let person1=createPerson("Vishal",24)
+console.log(person1)
+person1.greet()
 
-class Manager extends Employee {
-  constructor(name, age, sal) {
-    super(name, age);
-    this.sal = sal;
-  }
-}
-
-let emp = new Employee("xyz", 21);
-console.log(emp);
-
-let mgr = new Manager("abc", 28, 120000);
-console.log(mgr);
+let person2=createPerson("Shiva",30)
+console.log(person2)
+person2.greet()
