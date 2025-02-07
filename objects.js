@@ -671,18 +671,31 @@
 // console.log(Math.floor(Math.random() * 1000));
 
 //! Create a 4 digit random otp
+// function generateOTP(length) {
+//     let otp = '';
+//     for (let i = 0; i < length; i++) {
+//         otp += Math.floor(Math.random() * 10); // Generates a random digit (0-9) 
+//     }
+//     return otp;
+// }
+// // Example: Generate a 6-digit OTP 
+// let otp = generateOTP(6);
+// console.log("Your OTP is:", otp);
+
+// let otp = Math.floor(Math.random() * 899999)+100000;
+// console.log(otp)
 
 //! Date
 //? Used to access system date and time
 
-let date=new Date()
-console.log(date.getFullYear())
-console.log(date.getMonth())
-console.log(date.getDate())
-console.log(date.getDay())
-console.log(date.getTime())
-console.log(date.getHours())
-console.log(date.getMinutes())
-console.log(date.getSeconds())
-console.log(date.getMilliseconds())
+// let date=new Date()
+// console.log(date.getFullYear())
+// console.log(date.getMonth())
+// console.log(date.getDate())
+// console.log(date.getDay())
+// console.log(date.getTime())
+// console.log(date.getHours())
+// console.log(date.getMinutes())
+// console.log(date.getSeconds())
+// console.log(date.getMilliseconds())
 
