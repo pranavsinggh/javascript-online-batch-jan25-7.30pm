@@ -1,0 +1,11 @@
+{
+    "person":{
+        "name":"Peter parker",
+        "age":21,
+        "isSuperhero":true,
+        "hobbies":["computers","socceer"],
+        "addrees":{
+            "city":"New york"
+        }
+    }
+}
