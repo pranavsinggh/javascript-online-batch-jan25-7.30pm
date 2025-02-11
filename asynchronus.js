@@ -310,14 +310,14 @@
 //     console.log(err);
 //   });
 
-let fn = async function () {
-  try {
-    let result = await fetch("https://api.github.com/users");
-    console.log(result);
-    let data = await result.json();
-    console.log(data);
-  } catch (error) {
-    console.log(error);
-  }
-};
-fn();
+// let fn = async function () {
+//   try {
+//     let result = await fetch("https://api.github.com/users");
+//     console.log(result);
+//     let data = await result.json();
+//     console.log(data);
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
+// fn();
