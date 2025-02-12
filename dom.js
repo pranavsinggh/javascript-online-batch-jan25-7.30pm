@@ -28,5 +28,31 @@
 //? It will select the element having the respective id. It will select the first matching element only, and we also should not provide same id to multiple elements. It will return the single first matching element having the respective id
 //~ Syntax - document.getElementById()
 
-let first=document.getElementById("first")
-console.dir(first)
+// let first=document.getElementById("first")
+// console.dir(first)
+
+//^ querySelector()
+//? It will select the element based upon the provided css query/selector. It will select the first matching element only, even for class and tags
+//~ Syntax - document.querySelector("css selector")
+
+// let id=document.querySelector("#first")
+// console.log(id)
+
+// let classElements=document.querySelector(".one")
+// console.log(classElements)
+
+// let tag=document.querySelector("p")
+// console.log(tag)
+
+//^ querySelectorAll()
+//? It will select the elements based upon the provided css query/selector. It will select all the elements matching the css query
+//~ Syntax - document.querySelectorAll()
+
+let ids=document.querySelectorAll("#first")
+console.log(ids)
+
+let classes=document.querySelectorAll(".one")
+console.log(classes)
+
+let tags=document.querySelectorAll("p")
+console.log(tags)
