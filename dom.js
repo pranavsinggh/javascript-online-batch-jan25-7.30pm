@@ -196,22 +196,22 @@ let h1 = document.querySelector("h1");
 //? It is used to set multiple css properties at the same time
 //~ Syntax - element.style.cssText = "property:value;property:value;property:value;...."
 
-h1.style.cssText = "color:red;background-color:black;";
+// h1.style.cssText = "color:red;background-color:black;";
 
 //* Retrieve
 //^ getPropertyValue()
 //? It is used to get the value of the respective css property of that element
 //~ Syntax - element.style.getPropertyValue("property")
 
-let color = h1.style.getPropertyValue("color");
-console.log(color);
-let bg_color = h1.style.getPropertyValue("background-color");
-console.log(bg_color);
+// let color = h1.style.getPropertyValue("color");
+// console.log(color);
+// let bg_color = h1.style.getPropertyValue("background-color");
+// console.log(bg_color);
 
 //* Deletion
 //^ removeProperty()
 //? It is used to remove the particular property from the element
 //~ Syntax - element.style.removeProperty("property")
 
-h1.style.removeProperty("background-color");
-h1.style.removeProperty("color");
+// h1.style.removeProperty("background-color");
+// h1.style.removeProperty("color");

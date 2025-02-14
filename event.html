@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        #grandParent{
+            background-color: yellow;
+            height: 300px;
+            width: 800px;
+            margin: 50px 200px;
+            padding: 60px;
+        }
+        #parent{
+            background-color: red;
+            height: 160px;
+            width: 650px;
+            padding: 60px;
+        }
+        #child{
+            background-color: green;
+            height: 20px;
+            width: 500px;
+            padding: 60px;
+        }
+    </style>
+  </head>
+  <body>
+    <!-- <div>Adding a event handler</div> -->
+
+    <div id="grandParent">
+        Grand parent
+      <div id="parent">
+        Parent
+        <div id="child">
+            Child
+        </div>
+      </div>
+    </div>
+    <script src="./events.js"></script>
+  </body>
+</html>
