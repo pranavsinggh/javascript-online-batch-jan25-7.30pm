@@ -122,13 +122,13 @@ let c = document.querySelector("#child");
 //^ Event object
 //? So whenver a event occurs, browser itseld creates an objects, providing information about the event which is occured. This ovbject is automatically passed to the function handling the event, and we can access by passing a name for the first parameter
 
-c.addEventListener("click", (e) => {
-    console.log(e)
-    console.log(e.target)
-    console.log(e.type)
-    e.preventDefault()
-    e.stopPropagation()
-})
+// c.addEventListener("click", (e) => {
+//     console.log(e)
+//     console.log(e.target)
+//     console.log(e.type)
+//     e.preventDefault()
+//     e.stopPropagation()
+// })
 
 //* target - The precise object on which the event occurred.
 //* type - The type of the event, also known as the name of the event
